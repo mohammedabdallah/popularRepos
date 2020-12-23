@@ -56,6 +56,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'search_endpoint' => env('SEARCH_ENDPOINT', 'https://api.github.com/search/repositories'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

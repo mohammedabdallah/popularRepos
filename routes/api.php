@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::group(
     ['namespace' => 'Api'],
     function ($route) {
-        Route::get('listPopularRepos', 'SearchController@search');
+        $route->get('listPopularRepos', 'SearchController@search');
     }
 );
