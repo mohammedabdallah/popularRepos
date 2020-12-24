@@ -6,6 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class RepoResource extends JsonResource
 {
+    public static $wrap = 'types';
     /**
      * Transform the resource into an array.
      *
@@ -14,6 +15,10 @@ class RepoResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name'=> $this['full_name'],
+            'language' => $this['language'],
+            'owner' => $this['owner']['login']
+        ];
     }
 }

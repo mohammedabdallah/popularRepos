@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\RepoCollection;
 use App\Services\SearchService;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,6 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
-        return $this->searchService->getRepos($request->all());
+        return new RepoCollection(collect($this->searchService->getRepos($request->all())['items']));
     }
 }
