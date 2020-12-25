@@ -16,6 +16,6 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
-        return new RepoCollection(collect($this->searchService->getRepos($request->all())['items']));
+        return new RepoCollection(collect($this->searchService->getRepos($request->all())));
     }
 }
