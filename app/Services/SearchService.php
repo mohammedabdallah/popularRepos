@@ -22,9 +22,13 @@ class SearchService
                 }
                 //we used substr to remove the last & which appended to end of the string
             }
+            
             return Http::get(substr($url, 0, -1))['items'];
+
         } catch (\Throwable $exception) {
+
             return $exception->getMessage();
+
         }
     }
 }
